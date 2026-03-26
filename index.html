@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Gavilán – La Magia del Reino Animal</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Merriweather:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="poster">
+
+    <!-- Fondo textura y luz -->
+    <div class="bg-overlay"></div>
+    <div class="bg-vignette"></div>
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Decoraciones de hojas esquinas -->
+    <div class="leaf-corner leaf-tl">🌿</div>
+    <div class="leaf-corner leaf-tr">🌿</div>
+    <div class="leaf-corner leaf-bl">🌿</div>
+    <div class="leaf-corner leaf-br">🌿</div>
+
+    <!-- Escudo superior derecho -->
+    <div class="escudo escudo-tr">
+      <div class="escudo-shield">
+        <div class="escudo-icon">🦅</div>
+        <div class="escudo-label">COLOMBIA</div>
+      </div>
+    </div>
+
+    <!-- ===== HEADER ===== -->
+    <header class="poster-header">
+      <div class="header-ribbon">
+        <span>LA MAGIA DEL REINO ANIMAL</span>
+      </div>
+      <h1 class="main-title">EL GAVILÁN</h1>
+      <div class="title-rule"><span></span><span></span><span></span></div>
+    </header>
+
+    <!-- ===== CONTENIDO PRINCIPAL ===== -->
+    <main class="poster-main">
+
+      <!-- Columna izquierda -->
+      <div class="col-left">
+        <!-- Imagen del gavilán -->
+        <div class="hawk-frame card-frame">
+          <img
+            src="data:image/jpeg;base64,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"
+            alt="Gavilán posado en una rama"
+            class="hawk-img"
+          />
+          <div class="frame-border"></div>
+        </div>
+
+        <!-- Sección Hábitat -->
+        <section class="info-card habitat-card">
+          <h2 class="card-title">HÁBITAT</h2>
+          <div class="card-rule"></div>
+          <p>
+            En Colombia, el gavilán habita en una gran variedad de ecosistemas,
+            como selvas, bosques, sabanas y zonas rurales e incluso urbanas. Se
+            adapta fácilmente a diferentes altitudes y suele encontrarse en
+            lugares con árboles donde puede posarse y cazar.
+          </p>
+        </section>
+      </div>
+
+      <!-- Columna derecha -->
+      <div class="col-right">
+        <!-- Sección Introducción -->
+        <section class="info-card intro-card">
+          <h2 class="card-title">INTRODUCCIÓN</h2>
+          <div class="card-rule"></div>
+          <p>
+            El gavilán es un ave rapaz ágil y veloz, con excelente vista, que
+            caza pequeños animales y ayuda a mantener el equilibrio del
+            ecosistema. Se caracteriza por su gran capacidad de adaptación,
+            ya que puede vivir en distintos ambientes, desde bosques hasta
+            zonas urbanas.
+          </p>
+        </section>
+
+        <!-- Imagen escuela / paisaje -->
+        <div class="school-frame card-frame">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu5qMUUYZhbC19GPR_nGLMiiKIwPPwVLMB0A&s"
+            alt="Institución educativa colombiana"
+            class="school-img"
+          />
+          <div class="frame-border"></div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- ===== SECCIÓN ADAPTACIONES ===== -->
+    <section class="adaptaciones-section">
+      <!-- Emblema izquierdo -->
+      <div class="emblem">
+        <div class="emblem-outer-ring"></div>
+        <div class="emblem-circle">
+          <span class="emblem-hawk">🦅</span>
+        </div>
+        <div class="emblem-leaves">🌿</div>
+      </div>
+
+      <!-- Texto -->
+      <div class="adaptaciones-content info-card">
+        <h2 class="card-title adaptaciones-title">ADAPTACIONES<br>INCREÍBLES</h2>
+        <div class="card-rule"></div>
+        <p>
+          El gavilán es un ave rapaz con una vista muy aguda y gran velocidad,
+          capaz de cazar con precisión incluso en vuelo. Es silencioso,
+          adaptable a distintos ambientes como los de Colombia, y cumple un
+          papel clave en el equilibrio del ecosistema.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="poster-footer">
+      <div class="footer-escudo">
+        <div class="escudo-shield small">
+          <div class="escudo-icon">🦅</div>
+          <div class="escudo-label">COL</div>
+        </div>
+      </div>
+      <div class="footer-credits">
+        <p class="footer-label">DESARROLLADO POR:</p>
+        <p class="footer-names">Jair Gomez / Felipe Vidal / Samuel Marin</p>
+      </div>
+    </footer>
+
+  </div><!-- /poster -->
+
+  <script src="script.js"></script>
+</body>
+</html>
