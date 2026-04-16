@@ -107,7 +107,8 @@ section {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
-  gap: 30px;
+  gap: 50px;
+  margin-top: 1%;
 }
 
 .texto h2 {
