@@ -1,19 +1,27 @@
-// Puedes añadir interactividad aquí
-
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Página de los Gavilanes cargada correctamente");
+    const expandableSections = document.querySelectorAll(".expandible");
 
-    // Ejemplo de interacción
-    const sections = document.querySelectorAll("section");
-
-    sections.forEach(section => {
+    expandableSections.forEach(section => {
         section.addEventListener("mouseenter", () => {
-            section.style.transform = "scale(1.02)";
-            section.style.transition = "0.3s";
+            section.classList.add("expanded");
+            section.setAttribute("aria-expanded", "true");
         });
 
         section.addEventListener("mouseleave", () => {
-            section.style.transform = "scale(1)";
+            section.classList.remove("expanded");
+            section.setAttribute("aria-expanded", "false");
+        });
+
+        section.addEventListener("focusin", () => {
+            section.classList.add("expanded");
+            section.setAttribute("aria-expanded", "true");
+        });
+
+        section.addEventListener("focusout", () => {
+            if (!section.contains(document.activeElement)) {
+                section.classList.remove("expanded");
+                section.setAttribute("aria-expanded", "false");
+            }
         });
     });
 });
